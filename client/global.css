@@ -1,0 +1,344 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 99.5%;
+    --foreground: 220 14% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 20%;
+
+    --primary: 200 40% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 160 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 85%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 270 40% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 92%;
+    --ring: 200 40% 45%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 14% 20%;
+    --sidebar-primary: 200 40% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 160 60% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 200 40% 45%;
+
+    /* Portfolio specific colors */
+    --portfolio-mint: 150 70% 60%;
+    --portfolio-lavender: 270 40% 75%;
+    --portfolio-soft-blue: 200 50% 65%;
+    --portfolio-light-gray: 220 20% 90%;
+  }
+
+  .dark {
+    --background: 220 14% 12%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 14% 18%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 14% 18%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 200 40% 55%;
+    --primary-foreground: 220 14% 12%;
+
+    --secondary: 160 60% 55%;
+    --secondary-foreground: 220 14% 12%;
+
+    --muted: 220 20% 35%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 270 40% 70%;
+    --accent-foreground: 220 14% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 25%;
+    --input: 220 14% 22%;
+    --ring: 200 40% 55%;
+    --sidebar-background: 220 14% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 200 40% 55%;
+    --sidebar-primary-foreground: 220 14% 12%;
+    --sidebar-accent: 160 60% 55%;
+    --sidebar-accent-foreground: 220 14% 12%;
+    --sidebar-border: 220 14% 25%;
+    --sidebar-ring: 200 40% 55%;
+
+    --portfolio-mint: 150 70% 55%;
+    --portfolio-lavender: 270 40% 70%;
+    --portfolio-soft-blue: 200 50% 60%;
+    --portfolio-light-gray: 220 20% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", "Inter", sans-serif;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-smooth hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-slate-50;
+  }
+
+  .section-padding {
+    @apply px-4 py-12 sm:px-6 md:px-8 lg:px-12;
+  }
+
+  /* Enhanced blob animations with smooth movement */
+  @keyframes blob-slow {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    25% {
+      transform: translate(30px, -80px) scale(1.1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(-40px, 40px) scale(0.95);
+      opacity: 0.95;
+    }
+    75% {
+      transform: translate(60px, 60px) scale(1.05);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes blob-medium {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    25% {
+      transform: translate(-50px, 60px) scale(0.95);
+      opacity: 0.92;
+    }
+    50% {
+      transform: translate(40px, -50px) scale(1.08);
+      opacity: 0.95;
+    }
+    75% {
+      transform: translate(-60px, 30px) scale(0.98);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes blob-fast {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    25% {
+      transform: translate(40px, 50px) scale(1.05);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(-30px, -60px) scale(0.92);
+      opacity: 0.95;
+    }
+    75% {
+      transform: translate(50px, -40px) scale(1.1);
+      opacity: 0.9;
+    }
+  }
+
+  /* Floating animation variants for depth */
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-medium {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes float-fast {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Enhanced glow animation */
+  @keyframes glow-soft {
+    0%,
+    100% {
+      box-shadow:
+        0 0 10px rgba(200, 206, 232, 0.2),
+        0 0 20px rgba(200, 206, 232, 0.1);
+      filter: blur(3xl);
+    }
+    50% {
+      box-shadow:
+        0 0 20px rgba(200, 206, 232, 0.4),
+        0 0 40px rgba(200, 206, 232, 0.2);
+      filter: blur(3xl);
+    }
+  }
+
+  .animate-blob-slow {
+    animation: blob-slow 8s ease-in-out infinite;
+  }
+
+  .animate-blob-medium {
+    animation: blob-medium 10s ease-in-out infinite;
+  }
+
+  .animate-blob-fast {
+    animation: blob-fast 9s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 3.5s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  .animate-glow-soft {
+    animation: glow-soft 3s ease-in-out infinite;
+  }
+
+  /* Mobile-specific animations */
+  @media (max-width: 768px) {
+    .animate-slide-up,
+    .animate-slide-down,
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-fade-in,
+    .animate-scale-up,
+    .animate-rotate-in {
+      animation-duration: 0.4s !important;
+      animation-delay: 0 !important;
+    }
+
+    .hover-lift {
+      @apply active:shadow-lg active:-translate-y-1 transition-smooth;
+    }
+
+    /* Optimize animations for touch devices */
+    @supports (touch-action: manipulation) {
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+  }
+
+  /* Reduce animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Mobile button optimizations */
+  @media (max-width: 768px) {
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Smooth scrolling optimization */
+  @supports (scroll-behavior: smooth) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
