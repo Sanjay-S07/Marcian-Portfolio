@@ -57,7 +57,7 @@ const Navigation = () => {
         }`}
       >
         <div className="text-2xl font-bold bg-gradient-to-r from-portfolio-soft-blue to-portfolio-mint bg-clip-text text-transparent">
-          Portfolio
+          MB
         </div>
 
         <div className="flex gap-8">
@@ -91,7 +91,7 @@ const Navigation = () => {
       {/* Mobile Navigation Trigger */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="text-xl font-bold bg-gradient-to-r from-portfolio-soft-blue to-portfolio-mint bg-clip-text text-transparent">
-          Portfolio
+          MB
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
