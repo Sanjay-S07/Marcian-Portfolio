@@ -8,7 +8,7 @@ To enable the "Download Resume" button to work properly, follow these steps:
    - Name it: MARCIAN_BENEDICT_D_RESUME.pdf
    
 2. FILE LOCATION:
-   - Current path: public/MARCIAN_BENEDICT_D_RESUME.pdf
+   - Current path: public/resume.pdf
    - The download button will automatically serve this file
 
 3. VERIFICATION:
@@ -19,7 +19,7 @@ To enable the "Download Resume" button to work properly, follow these steps:
    - If you have your resume in a different format or location,
      update the href in client/components/Hero.tsx:
      
-     Change: href="/MARCIAN_BENEDICT_D_RESUME.pdf"
+     Change: href="/resume.pdf"
      To: href="/your-resume-filename.pdf"
 
 NOTES:
